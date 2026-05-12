@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const info = [
@@ -7,26 +8,22 @@ export const Header = () => {
       path: "/",
     },
     {
-      name: "SignUp",
-      path: "/signup",
+      name: "Products",
+      path: "/products",
     },
     {
-      name:"Products",
-      path:"/products",
+      name: "Cart",
+      path: "/cart",
     },
-    {
-      name:"Cart",
-      path:"/cart"
-    }
   ];
+
+  const navigate = useNavigate();
+  
 
   return (
     <header className="bg-white shadow-md px-6 py-4">
       <nav className="max-w-7xl mx-auto flex items-center justify-between">
-
-        <h1 className="text-2xl font-bold text-blue-600">
-          Auth App
-        </h1>
+        <Link className="text-2xl font-bold text-blue-600" to={"/home"}>Auth App</Link>
 
         <div className="flex items-center gap-4">
           {info.map((loc) => (
